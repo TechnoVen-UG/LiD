@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LiD</string>
+    <string name="instructions">Über LiD</string>
+    <string name="goto_to_app">ZUR APP</string>
+    <string name="instruction_details">
+       Die Leben in Deutschland App hilft Ihnen bei der Vorbereitung für den Einbürgerungstest und wurde für
+        zugewanderte Menschen aus allen Ländern in den Sprachen Deutsch, Englisch und Arabisch entwickelt.
+        Dank der Auszeichnungen könen Sie sehen, in welchen Bereichen Sie bereits sehr gute Kenntnisse haben und
+        können sich auch mit ihren Freunden vergleichen.
+    </string>
+    <string name="buy_app">Werbefreie App</string>
+    <string name="options">Optionen</string>
+    <string name="bar_chart">Bar Chart</string>
+    <string name="achievement">Auszeichnungen</string>
+    <string name="agb">AGB</string>
+    <string name="want_to_exit">App verlassen?</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="test">TEST</string>
+    <string name="training">Training</string>
+    <string name="select_state">Bundesland wählen</string>
+    <string name="sound">Ton</string>
+    <string name="on">An</string>
+    <string name="off">Aus</string>
+    <string name="show_answer">Antwort Anzeigen</string>
+    <string name="rate_the_app">App Bewerten</string>
+    <string name="go">Gehen</string>
+    <string name="all_questions">Alle Fragen</string>
+    <string name="general_practice">GESAMT</string>
+    <string name="specific_practice">EINZELBEREICHE</string>
+    <string name="bronze">Bronze</string>
+    <string name="silver">Silber</string>
+    <string name="gold">Gold</string>
+    <string name="platinum">Platin</string>
+    <string name="specific_areas">Einzelbereiche</string>
+    <string name="arabic">Arabic</string>
+    <string name="german">German</string>
+    <string name="english">English</string>
+    <string name="model_test">Test-Prüfung</string>
+    <string name="start_model_test_now">Test-Prüfung jetzt starten?</string>
+    <string name="continue_">Weiter</string>
+    <string name="end">Beenden</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="really_cancel_test">Den Test Wirklich Abbrechen?</string>
+    <string name="continue_training">Training fortsetzen</string>
+    <string name="continue_training_q">Training fortsetzen?</string>
+    <string name="new_training">Neues Training</string>
+    <string name="previous">Bisherige</string>
+    <string name="ok">OK</string>
+    <string name="share">Teilen</string>
+    <string name="completed_test">Test Abgeschlossen</string>
+    <string name="play_again">Willst du nochmal trainieren?</string>
+    <string name="score">Ergebnis:</string>
+    <string name="review">Rezension</string>
+    <string name="empty">Leer</string>
+    <string name="how_to_use">Wie benutzt man</string>
+    <string name="please_wait">Bitte warten Sie, bis die Frage fertig sind.</string>
+    <string name="something_went_wrong">Etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Netzwerkverbindung und versuchen Sie es erneut.</string>
+
+    <string name="federal_states">Bundesländer</string>
+    <string name="baden_württemberg">Baden-Württemberg</string>
+    <string name="bavaria">Bayern</string>
+    <string name="berlin">Berlin</string>
+    <string name="brandenburg">Brandenburg</string>
+    <string name="bremen">Bremen</string>
+    <string name="hamburg">Hamburg</string>
+    <string name="hesse">Hessen</string>
+    <string name="mecklenburg_west_pomerania">Mecklenburg-Vorpommern</string>
+    <string name="lower_saxony">Niedersachsen</string>
+    <string name="northrhine_westphalia">Nordrhein-Westfalen</string>
+    <string name="rhineland_palatinate">Rheinland-Pfalz</string>
+    <string name="saarland">Saarland</string>
+    <string name="saxony">Sachsen</string>
+    <string name="saxony_anhalt">Sachsen-Anhalt</string>
+    <string name="schleswig_holstein">Schleswig-Holstein</string>
+    <string name="thuringia">Thüringen</string>
+
+    <string name="politics_in_the_democracy">Politik in der Demokratie</string>
+    <string name="constitutional_institutions">Verfassungsorgane</string>
+    <string name="constitutional_principles">Verfassungsprinzipien</string>
+    <string name="federalism">Föderalismus</string>
+    <string name="social_system">Sozialsystem</string>
+    <string name="basic_rights">Grundrechte</string>
+    <string name="elections_and_participation">Wahlen und Beteiligung</string>
+    <string name="political_parties">Parteien</string>
+    <string name="duties_of_the_state">Aufgaben des Staates</string>
+    <string name="duties">Pflichten</string>
+    <string name="state_symbols">Staatssymbole</string>
+    <string name="community">Kommune</string>
+    <string name="rights_and_everyday_life">Recht und Alltag</string>
+
+    <string name="history_and_responsibility">Geschichte und Verantwortung</string>
+    <string name="national_socialism_and_its_consequences">Der Nationalsozialismus und seine Folge</string>
+    <string name="important_events_after_1945">Wichtige Stationen nach 1945</string>
+    <string name="unification">Wiedervereinigung</string>
+    <string name="germany_in_Europe">Deutschland in Europa</string>
+
+    <string name="humanity_and_society">Mensch und Gesellschaft</string>
+    <string name="religious_diversity">Religiöse Vielfalt</string>
+    <string name="education">Bildung</string>
+    <string name="migration_history">Migrationsgeschichte</string>
+    <string name="intercultural_cohabitation">Interkulturelles Zusammen Leben</string>
+
+</resources>

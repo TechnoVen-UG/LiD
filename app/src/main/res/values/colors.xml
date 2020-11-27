@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#f4a401</color>
+    <color name="colorBackground">#9A9A95</color>
+    <color name="colorStartFlag">#1a272f</color>
+    <color name="colorMidFlag">#9b0200</color>
+    <color name="colorEndFlag">#f4a401</color>
+    <color name="dark_gray">#504F4F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#4c9c50</color>
+    <color name="color_app_bar">#1a272f</color>
+    <color name="color_spinner_background">#D1E9EC</color>
+    <color name="color_arrow_background">#263037</color>
+</resources>

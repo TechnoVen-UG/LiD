@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomRatingBar">
+        <attr name="setImageResource" format="reference" />
+        <attr name="setRatingName" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomTestRatingBar">
+        <attr name="setSmallImage" format="reference" />
+        <attr name="setMediumImage" format="reference" />
+        <attr name="setLargeImage" format="reference" />
+        <attr name="setTestRatingName" format="reference" />
+    </declare-styleable>
+</resources>

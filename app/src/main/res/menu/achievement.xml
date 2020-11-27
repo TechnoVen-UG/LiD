@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/achievementInstruction"
+        android:title="@string/instructions"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/achievementBarChart"
+        android:title="@string/bar_chart"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/achievementRateApp"
+        android:title="@string/rate_the_app"
+        app:showAsAction="never" />
+
+</menu>

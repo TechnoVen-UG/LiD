@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LiD</string>
+    <string name="instructions">تعليمات</string>
+    <string name="goto_to_app">انتقل إلى التطبيق</string>
+    <string name="instruction_details">
+        يساعدك تطبيق Leben in Deutschland في التحضير لاختبار الهجرة ، وهو مصمم خصيصًا للاجئين من المناطق الناطقة بالعربية ، وبفضل الإنجازات التي يمكنك رؤيتها في المناطق التي لديك بالفعل معرفة جيدة جدًا ويمكنك مقارنة نفسك بأصدقائك.
+    </string>
+    <string name="buy_app">شراء التطبيق</string>
+    <string name="options"> خيارات</string>
+    <string name="bar_chart">شريط الرسم البياني</string>
+    <string name="achievement">إنجاز</string>
+    <string name="agb">AGB</string>
+    <string name="want_to_exit">هل تريد الخروج؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="test">اختبار</string>
+    <string name="training">تدريب</string>
+    <string name="select_state">اختر ولايه</string>
+    <string name="sound">صوت</string>
+    <string name="on">على</string>
+    <string name="off">إيقاف</string>
+    <string name="show_answer">اظهر الاجابة</string>
+    <string name="rate_the_app">قيم التطبيق</string>
+    <string name="go">اذهب</string>
+    <string name="all_questions">جميع الأسئلة</string>
+    <string name="general_practice">ممارسة عامة</string>
+    <string name="specific_practice">ممارسة محددة</string>
+    <string name="bronze">Bronze</string>
+    <string name="silver">Silver</string>
+    <string name="gold">Gold</string>
+    <string name="platinum">Platin</string>
+    <string name="specific_areas">الأقسام الفردية</string>
+    <string name="arabic">عربي</string>
+    <string name="german">ألماني</string>
+    <string name="english">الإنجليزية</string>
+    <string name="model_test">الاختبار</string>
+    <string name="start_model_test_now">هل تريد بدأ الاختبار</string>
+    <string name="continue_">التالي</string>
+    <string name="end">انهاء</string>
+    <string name="cancel">الغاء</string>
+    <string name="really_cancel_test">هل تريد حقاً الغاء الاختبار</string>
+    <string name="continue_training">مواصلة التدريب</string>
+    <string name="continue_training_q">مواصلة التدريب</string>
+    <string name="new_training">تدريب جديد</string>
+    <string name="previous">السابق</string>
+    <string name="ok">OK</string>
+    <string name="share">شارك</string>
+    <string name="completed_test">اختبار مكتمل</string>
+    <string name="play_again">هل تريد التدرب مرة أخرى؟</string>
+    <string name="score">أحرز هدفا:</string>
+    <string name="review">مراجعة</string>
+    <string name="empty">فارغة</string>
+    <string name="how_to_use">كيف تستعمل</string>
+    <string name="please_wait">يرجى الانتظار حتى يصبح السؤال جاهزًا.</string>
+    <string name="something_went_wrong">هناك خطأ ما. يرجى التحقق من اتصال الشبكة وإعادة المحاولة.</string>
+
+    <string name="federal_states">الولايات الإتحادية</string>
+    <string name="baden_württemberg">بادن-فورتمبيرغ </string>
+    <string name="bavaria">بافاريا </string>
+    <string name="berlin">برلين</string>
+    <string name="brandenburg">براندنبورغ</string>
+    <string name="bremen">بريمن</string>
+    <string name="hamburg">هامبورغ</string>
+    <string name="hesse">هسن </string>
+    <string name="mecklenburg_west_pomerania">ميكلينبورغ-فوربومرن </string>
+    <string name="lower_saxony">ساكسونيا السفلى </string>
+    <string name="northrhine_westphalia">شمال الراين – وستفاليا </string>
+    <string name="rhineland_palatinate">راينلند بالاتينات </string>
+    <string name="saarland">سارلاند </string>
+    <string name="saxony">ساكسونيا </string>
+    <string name="saxony_anhalt">ساكسن-أنهالت </string>
+    <string name="schleswig_holstein">شليسفغ-هولسشتاين</string>
+    <string name="thuringia">تورنغن </string>
+
+    <string name="politics_in_the_democracy">السياسة في الديمقراطية</string>
+    <string name="constitutional_institutions">الهيئات الدستورية</string>
+    <string name="constitutional_principles">المبادئ الدستورية</string>
+    <string name="federalism">الفيدرالية</string>
+    <string name="social_system">النظام الاجتماعي</string>
+    <string name="basic_rights">الحقوق الأساسية</string>
+    <string name="elections_and_participation">الانتخابات و المشاركة</string>
+    <string name="political_parties">الأحزاب</string>
+    <string name="duties_of_the_state">وظائف الدولة</string>
+    <string name="duties">الالتزامات</string>
+    <string name="state_symbols">رموز الدولة</string>
+    <string name="community">البلديات</string>
+    <string name="rights_and_everyday_life">لقانون واليوميات</string>
+
+    <string name="history_and_responsibility">التاريخ والمسؤولية</string>
+    <string name="national_socialism_and_its_consequences">النازية ومشتقاتها</string>
+    <string name="important_events_after_1945">محطات مهمة بعد عام 1945</string>
+    <string name="unification">التوحيد</string>
+    <string name="germany_in_Europe">ألمانيا في أوروبا</string>
+
+    <string name="humanity_and_society">الناس والمجتمع</string>
+    <string name="religious_diversity"> التنوع الديني</string>
+    <string name="education">التعليم</string>
+    <string name="migration_history">تاريخ الهجرة</string>
+    <string name="intercultural_cohabitation">تعايش الثقافات</string>
+
+</resources>

@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">LiD</string>
+    <string name="instructions">About LiD</string>
+    <string name="goto_to_app">GO TO APP</string>
+    <string name="instruction_details">
+        The Leben in Deutschland app helps you prepare for the naturalization test and was developed for
+        immigrants from all countries in German, English and Arabic. Thanks to the achievements you
+        can see in which areas you already have a very good knowledge and you can also compare yourself with your friends.
+    </string>
+    <string name="buy_app">Buy App</string>
+    <string name="options">Options</string>
+    <string name="bar_chart">Bar Chart</string>
+    <string name="achievement">Achievement</string>
+    <string name="agb">AGB</string>
+    <string name="want_to_exit">Do you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="test">TEST</string>
+    <string name="training">Training</string>
+    <string name="select_state">Select State</string>
+    <string name="sound">Sound</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="show_answer">Show Answer</string>
+    <string name="rate_the_app">Rate The App</string>
+    <string name="go">GO</string>
+    <string name="all_questions">All Questions</string>
+    <string name="general_practice">GENERAL PRACTICE</string>
+    <string name="specific_practice">SPECIFIC PRACTICE</string>
+    <string name="bronze">Bronze</string>
+    <string name="silver">Silver</string>
+    <string name="gold">Gold</string>
+    <string name="platinum">Platin</string>
+    <string name="specific_areas">Specific Areas</string>
+    <string name="arabic">Arabic</string>
+    <string name="german">German</string>
+    <string name="english">English</string>
+    <string name="model_test">Model Test</string>
+    <string name="start_model_test_now">Start Model Test Now?</string>
+    <string name="continue_">Continue</string>
+    <string name="end">End</string>
+    <string name="cancel">Cancel</string>
+    <string name="really_cancel_test">Really Cancel Test?</string>
+    <string name="continue_training">Continue Training</string>
+    <string name="continue_training_q">Continue Training?</string>
+    <string name="new_training">New Training</string>
+    <string name="previous">Previous</string>
+    <string name="ok">OK</string>
+    <string name="share">Share</string>
+    <string name="completed_test">Completed Test</string>
+    <string name="play_again">Do you want to practice again?</string>
+    <string name="score">Score:</string>
+    <string name="review">Review</string>
+    <string name="empty">Empty</string>
+    <string name="how_to_use">How To Use</string>
+    <string name="please_wait">Please wait until question set ready.</string>
+    <string name="something_went_wrong">Something went wrong. Please check your network connection and try again.</string>
+
+    <string name="federal_states">Federal States</string>
+    <string name="baden_württemberg">Baden-Württemberg</string>
+    <string name="bavaria">Bavaria</string>
+    <string name="berlin">Berlin</string>
+    <string name="brandenburg">Brandenburg</string>
+    <string name="bremen">Bremen</string>
+    <string name="hamburg">Hamburg</string>
+    <string name="hesse">Hesse</string>
+    <string name="mecklenburg_west_pomerania">Mecklenburg- West Pomerania</string>
+    <string name="lower_saxony">Lower Saxony</string>
+    <string name="northrhine_westphalia">Northrhine-Westphalia</string>
+    <string name="rhineland_palatinate">Rhineland-Palatinate</string>
+    <string name="saarland">Saarland</string>
+    <string name="saxony">Saxony</string>
+    <string name="saxony_anhalt">Saxony-Anhalt</string>
+    <string name="schleswig_holstein">Schleswig-Holstein</string>
+    <string name="thuringia">Thuringia</string>
+
+    <string name="politics_in_the_democracy">Politics in the Democracy</string>
+    <string name="constitutional_institutions">Constitutional Institutions</string>
+    <string name="constitutional_principles">Constitutional Principles</string>
+    <string name="federalism">Federalism</string>
+    <string name="social_system">Social System</string>
+    <string name="basic_rights">Basic Rights</string>
+    <string name="elections_and_participation">Elections and Participation</string>
+    <string name="political_parties">Political Parties</string>
+    <string name="duties_of_the_state">Duties of the State</string>
+    <string name="duties">Duties</string>
+    <string name="state_symbols">State Symbols</string>
+    <string name="community">Community</string>
+    <string name="rights_and_everyday_life">Rights and Everyday Life</string>
+
+    <string name="history_and_responsibility">History and Responsibility</string>
+    <string name="national_socialism_and_its_consequences">National Socialism and its Consequences</string>
+    <string name="important_events_after_1945">Important events after 1945</string>
+    <string name="unification">Unification</string>
+    <string name="germany_in_Europe">Germany in Europe</string>
+
+
+    <string name="humanity_and_society">Humanity and Society</string>
+    <string name="religious_diversity">Religious Diversity</string>
+    <string name="education">Education</string>
+    <string name="migration_history">Migration History</string>
+    <string name="intercultural_cohabitation">Intercultural Cohabitation</string>
+
+    <string name="admob_app_id" translatable="false">ca-app-pub-3211067144339258~1286437062</string>
+    <string name="banner_add_unit_id" translatable="false">ca-app-pub-3211067144339258/2681433304</string>
+    <string name="interstitial_add_unit_id" translatable="false">ca-app-pub-3211067144339258/1176779949</string>
+
+</resources>

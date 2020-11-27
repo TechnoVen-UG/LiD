@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#424242">
+
+    <TextView
+        android:id="@+id/ratingNameTV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#1a272f"
+        android:drawableStart="@drawable/ic_arrow_right"
+        android:gravity="start|center"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/bronze" />
+
+    <ImageView
+        android:id="@+id/smallImage"
+        android:layout_width="34dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingNameTV"
+        tools:srcCompat="@drawable/ic_star_white" />
+
+    <ImageView
+        android:id="@+id/mediumImage"
+        android:layout_width="54dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/smallImage"
+        app:layout_constraintEnd_toStartOf="@+id/largeImage"
+        app:layout_constraintStart_toEndOf="@+id/smallImage"
+        app:layout_constraintTop_toBottomOf="@+id/ratingNameTV"
+        tools:srcCompat="@drawable/ic_star_white" />
+
+    <ImageView
+        android:id="@+id/largeImage"
+        android:layout_width="74dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/mediumImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingNameTV"
+        tools:srcCompat="@drawable/ic_star_white" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/testAchievementLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.dot.lid.utils.CustomTestRatingBar
+        android:id="@+id/testAchievementBronze"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:setLargeImage="@drawable/ic_star_white"
+        app:setMediumImage="@drawable/ic_star_white"
+        app:setSmallImage="@drawable/ic_star_white"
+        app:setTestRatingName="@string/bronze" />
+
+    <com.dot.lid.utils.CustomTestRatingBar
+        android:id="@+id/testAchievementSilver"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testAchievementBronze"
+        app:setLargeImage="@drawable/ic_star_white"
+        app:setMediumImage="@drawable/ic_star_white"
+        app:setSmallImage="@drawable/ic_star_white"
+        app:setTestRatingName="@string/silver" />
+
+    <com.dot.lid.utils.CustomTestRatingBar
+        android:id="@+id/testAchievementGold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testAchievementSilver"
+        app:setLargeImage="@drawable/ic_star_white"
+        app:setMediumImage="@drawable/ic_star_white"
+        app:setSmallImage="@drawable/ic_star_white"
+        app:setTestRatingName="@string/gold" />
+
+    <com.dot.lid.utils.CustomTestRatingBar
+        android:id="@+id/testAchievementPlatinum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testAchievementGold"
+        app:setLargeImage="@drawable/ic_star_white"
+        app:setMediumImage="@drawable/ic_star_white"
+        app:setSmallImage="@drawable/ic_star_white"
+        app:setTestRatingName="@string/platinum" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

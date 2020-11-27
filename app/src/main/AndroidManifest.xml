@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dot.lid">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.dot.lid.app.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name="com.dot.lid.view.main.WebViewActivity" />
+        <activity android:name="com.dot.lid.view.training.TrainingActivity" />
+        <activity android:name="com.dot.lid.view.instruction.InstructionActivity" />
+        <activity android:name="com.dot.lid.view.training.AchievementActivity" />
+        <activity android:name="com.dot.lid.view.test.BarChartActivity" />
+        <activity android:name="com.dot.lid.view.main.MainActivity" />
+        <activity android:name="com.dot.lid.view.main.PolicyActivity" />
+        <activity
+            android:name="com.dot.lid.view.test.TestActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name="com.dot.lid.view.training.StartTrainingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name="com.dot.lid.view.main.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:layoutDirection="ltr"
+    tools:context=".view.training.TrainingActivity">
+
+    <include
+        android:id="@+id/include_flag"
+        layout="@layout/layout_start_flag"
+        android:layout_width="8dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/layout_custom_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/include_flag"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Spinner
+                android:id="@+id/selectLanguageSpinner"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/language_spinner_background"
+                android:nestedScrollingEnabled="true"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toStartOf="@+id/selectLanguageButton"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/selectLanguageButton"
+                android:layout_width="70dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginEnd="24dp"
+                android:background="@color/color_arrow_background"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/selectLanguageSpinner">
+
+                <ImageView
+                    android:id="@+id/selectLanguageIV"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/allQuestionsTV"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/color_app_bar"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/selectLanguageSpinner"
+                tools:text="@string/all_questions" />
+
+            <Spinner
+                android:id="@+id/stateTrainingSpinner"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toStartOf="@+id/stateTrainingButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/allQuestionsTV" />
+
+            <FrameLayout
+                android:id="@+id/stateTrainingButton"
+                android:layout_width="70dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginEnd="24dp"
+                android:background="@color/color_app_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/stateTrainingSpinner">
+
+                <ImageView
+                    android:id="@+id/stateTrainingIV"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/specificAreaTV"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="24dp"
+                android:background="@color/color_app_bar"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/stateTrainingSpinner"
+                tools:text="@string/specific_areas" />
+
+            <Spinner
+                android:id="@+id/politicalTrainingSpinner"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toStartOf="@+id/politicalTrainingButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/specificAreaTV" />
+
+
+            <FrameLayout
+                android:id="@+id/politicalTrainingButton"
+                android:layout_width="70dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginEnd="24dp"
+                android:background="@color/color_app_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/politicalTrainingSpinner">
+
+                <ImageView
+                    android:id="@+id/politicalTrainingIV"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+            </FrameLayout>
+
+            <Spinner
+                android:id="@+id/historyTrainingSpinner"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toStartOf="@+id/historyTrainingButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/politicalTrainingSpinner" />
+
+            <FrameLayout
+                android:id="@+id/historyTrainingButton"
+                android:layout_width="70dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginEnd="24dp"
+                android:background="@color/color_app_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/historyTrainingSpinner">
+
+                <ImageView
+                    android:id="@+id/historyTrainingIV"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+            </FrameLayout>
+
+            <Spinner
+                android:id="@+id/societyTrainingSpinner"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toStartOf="@+id/societyTrainingButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/historyTrainingSpinner" />
+
+            <FrameLayout
+                android:id="@+id/societyTrainingButton"
+                android:layout_width="70dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginEnd="24dp"
+                android:background="@color/color_app_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/societyTrainingSpinner">
+
+                <ImageView
+                    android:id="@+id/societyTrainingIV"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+            </FrameLayout>
+
+            <Spinner
+                android:id="@+id/federalTrainingSpinner"
+                android:layout_width="0dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:spinnerMode="dialog"
+                app:layout_constraintEnd_toStartOf="@+id/federalTrainingButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/societyTrainingSpinner" />
+
+            <FrameLayout
+                android:id="@+id/federalTrainingButton"
+                android:layout_width="70dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginEnd="24dp"
+                android:background="@color/color_app_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/federalTrainingSpinner">
+
+                <ImageView
+                    android:id="@+id/federalTrainingIV"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_arrow_drop_down" />
+
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/tv_logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
