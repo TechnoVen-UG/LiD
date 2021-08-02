@@ -113,8 +113,7 @@ public class StartTrainingActivity extends AppCompatActivity implements ShowAnsw
         subscribeObserver();
         retrieveQuestion();
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        binding.adView.loadAd(adRequest);
+        binding.adView.loadAd(new AdRequest.Builder().build());
     }
 
     private void subscribeObserver() {
@@ -657,24 +656,6 @@ public class StartTrainingActivity extends AppCompatActivity implements ShowAnsw
         instructionDialog.dismiss();
     }
 
-    @Override
-    protected void onPause() {
-        binding.adView.pause();
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        binding.adView.resume();
-        super.onResume();
-    }
-
-    @Override
-    protected void onDestroy() {
-        binding.adView.destroy();
-        super.onDestroy();
-    }
-
     private List<Achievement> getAchievementList() {
         if (isAllQuestion) {
             List<Selection> stateList = new ArrayList<>();
@@ -741,6 +722,25 @@ public class StartTrainingActivity extends AppCompatActivity implements ShowAnsw
         }
         achievementList.add(achievement);
         return achievementList;
+    }
+
+    @Override
+    protected void onPause() {
+        binding.adView.pause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        binding.adView.resume();
+        super.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        binding.adView.destroy();
+        super.onDestroy();
+        binding = null;
     }
 
 }

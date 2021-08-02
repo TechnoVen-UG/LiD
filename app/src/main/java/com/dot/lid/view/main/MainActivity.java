@@ -25,6 +25,7 @@ import com.dot.lid.app.MyApplication;
 import com.dot.lid.databinding.ActivityMainBinding;
 import com.dot.lid.dialog.InstructionDialog;
 import com.dot.lid.utils.Constant;
+import com.dot.lid.utils.Selection;
 import com.dot.lid.view.test.BarChartActivity;
 import com.dot.lid.view.test.TestActivity;
 import com.dot.lid.view.training.AchievementActivity;
@@ -32,6 +33,7 @@ import com.dot.lid.view.training.TrainingActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.LoadAdError;
 
 import java.util.Locale;
 
@@ -41,6 +43,9 @@ import static com.dot.lid.utils.Constant.getStateItem;
 import static com.dot.lid.utils.Language.ARABIC;
 import static com.dot.lid.utils.Language.ENGLISH;
 import static com.dot.lid.utils.Language.GERMAN;
+import static com.dot.lid.utils.Selection.ACHIEVEMENT;
+import static com.dot.lid.utils.Selection.TEST;
+import static com.dot.lid.utils.Selection.TRAINING;
 
 public class MainActivity extends AppCompatActivity implements InstructionDialog.InstructionDialogInterface {
     private static final String manualUrl = "http://technoven.de/lid/lid-user-manual.html";
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements InstructionDialog
     private StateSpinnerAdapter adapter;
     private InstructionDialog instructionDialog;
     private InterstitialAd interstitialAd;
-    private int stateFlag = 0;
+    private Selection selection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +78,19 @@ public class MainActivity extends AppCompatActivity implements InstructionDialog
 
         interstitialAd = new InterstitialAd(this);
         interstitialAd.setAdUnitId(getString(R.string.interstitial_add_unit_id));
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                interstitialAd.loadAd(new AdRequest.Builder().build());
+                doAfterAdClosed();
+            }
+
+            @Override
+            public void onAdFailedToLoad(LoadAdError loadAdError) {
+                doAfterAdClosed();
+            }
+        });
     }
 
     @Override
@@ -86,14 +104,6 @@ public class MainActivity extends AppCompatActivity implements InstructionDialog
             @Override
             public void onClick(View view) {
                 showExitDialog();
-            }
-        });
-
-        binding.trainingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stateFlag = 2;
-                showAd();
             }
         });
 
@@ -114,14 +124,30 @@ public class MainActivity extends AppCompatActivity implements InstructionDialog
             }
         });
 
+        binding.trainingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (interstitialAd.isLoaded()) {
+                    selection = TRAINING;
+                    interstitialAd.show();
+                } else {
+                    gotoTrainingActivity();
+                }
+            }
+        });
+
         binding.testButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (CURRENT_POSITION == 0) {
                     binding.spinner.performClick();
                 } else {
-                    stateFlag = 3;
-                    showAd();
+                    if (interstitialAd.isLoaded()) {
+                        selection = TEST;
+                        interstitialAd.show();
+                    } else {
+                        gotoTestActivity();
+                    }
                 }
             }
         });
@@ -149,23 +175,21 @@ public class MainActivity extends AppCompatActivity implements InstructionDialog
                 rateTheApp();
                 return true;
             case R.id.instruction:
-                instructionDialog = new InstructionDialog();
-                instructionDialog.show(getSupportFragmentManager(), "InstructionDialog");
+                openInstructionDialog();
                 return true;
             case R.id.achievement:
-                startActivity(new Intent(MainActivity.this, AchievementActivity.class));
-                showAnimation();
+                if (interstitialAd.isLoaded()) {
+                    selection = ACHIEVEMENT;
+                    interstitialAd.show();
+                } else {
+                    gotoAchievementActivity();
+                }
                 return true;
             case R.id.barChart:
-                startActivity(new Intent(MainActivity.this, BarChartActivity.class));
-                showAnimation();
+                gotoBarChartActivity();
                 return true;
             case R.id.howToUse:
-                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-                intent.putExtra(WebViewActivity.URL_KEY, manualUrl);
-                intent.putExtra(WebViewActivity.TITLE_KEY, "How To Use");
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                gotoWebViewActivity();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -198,8 +222,7 @@ public class MainActivity extends AppCompatActivity implements InstructionDialog
             @Override
             public void onClick(View view) {
                 alertDialog.dismiss();
-                stateFlag = 1;
-                showAd();
+                finish();
             }
         });
         noBT.setOnClickListener(new View.OnClickListener() {
@@ -231,45 +254,60 @@ public class MainActivity extends AppCompatActivity implements InstructionDialog
         }
     }
 
-    private void showAd() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                interstitialAd.show();
-            }
-
-            @Override
-            public void onAdClosed() {
-                doAfterAdClosed();
-            }
-
-            @Override
-            public void onAdFailedToLoad(int i) {
-                doAfterAdClosed();
-            }
-        });
-    }
-
     private void doAfterAdClosed() {
-        switch (stateFlag) {
-            case 1:
-                finish();
-                showAnimation();
+        switch (selection) {
+            case TEST:
+                gotoTestActivity();
                 break;
-            case 2:
-                Intent trainingIntent = new Intent(MainActivity.this, TrainingActivity.class);
-                trainingIntent.putExtra(TRAINING_ACTIVITY_KEY, true);
-                startActivity(trainingIntent);
-                showAnimation();
+            case TRAINING:
+                gotoTrainingActivity();
                 break;
-            case 3:
-                Intent testIntent = new Intent(MainActivity.this, TestActivity.class);
-                testIntent.putExtra(TEST_ACTIVITY_KEY, getStateItem(CURRENT_POSITION));
-                startActivity(testIntent);
-                showAnimation();
+            case ACHIEVEMENT:
+                gotoAchievementActivity();
                 break;
         }
+    }
+
+    private void gotoTestActivity() {
+        Intent testIntent = new Intent(MainActivity.this, TestActivity.class);
+        testIntent.putExtra(TEST_ACTIVITY_KEY, getStateItem(CURRENT_POSITION));
+        startActivity(testIntent);
+        showAnimation();
+    }
+
+    private void gotoTrainingActivity() {
+        Intent trainingIntent = new Intent(MainActivity.this, TrainingActivity.class);
+        trainingIntent.putExtra(TRAINING_ACTIVITY_KEY, true);
+        startActivity(trainingIntent);
+        showAnimation();
+    }
+
+    private void gotoAchievementActivity() {
+        startActivity(new Intent(MainActivity.this, AchievementActivity.class));
+        showAnimation();
+    }
+
+    private void gotoBarChartActivity() {
+        startActivity(new Intent(MainActivity.this, BarChartActivity.class));
+        showAnimation();
+    }
+
+    private void openInstructionDialog() {
+        instructionDialog = new InstructionDialog();
+        instructionDialog.show(getSupportFragmentManager(), "InstructionDialog");
+    }
+
+    private void gotoWebViewActivity() {
+        Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+        intent.putExtra(WebViewActivity.URL_KEY, manualUrl);
+        intent.putExtra(WebViewActivity.TITLE_KEY, "How To Use");
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        binding = null;
     }
 }

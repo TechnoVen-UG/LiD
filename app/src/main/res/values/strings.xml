@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LiD</string>
+    <string name="app_name">Leben In Deutschland</string>
     <string name="instructions">About LiD</string>
     <string name="goto_to_app">GO TO APP</string>
     <string name="instruction_details">
@@ -104,5 +104,9 @@
     <string name="admob_app_id" translatable="false">ca-app-pub-3211067144339258~1286437062</string>
     <string name="banner_add_unit_id" translatable="false">ca-app-pub-3211067144339258/2681433304</string>
     <string name="interstitial_add_unit_id" translatable="false">ca-app-pub-3211067144339258/1176779949</string>
+
+    <!--        <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>-->
+    <!--        <string name="banner_add_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--        <string name="interstitial_add_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
 
 </resources>

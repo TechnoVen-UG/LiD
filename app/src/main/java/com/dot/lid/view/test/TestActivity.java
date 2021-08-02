@@ -108,9 +108,7 @@ public class TestActivity extends AppCompatActivity
         showStartDialog();
         subscribeObserver();
 
-        AdRequest adRequest = new AdRequest.Builder().build();
-        binding.adView.loadAd(adRequest);
-
+        binding.adView.loadAd(new AdRequest.Builder().build());
         binding.adView.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {

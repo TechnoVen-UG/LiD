@@ -14,9 +14,7 @@ import static com.dot.lid.utils.Constant.SHOW_ANSWER_STATE;
 import static com.dot.lid.utils.Constant.SOUND_STATE;
 
 public class MyApplication extends Application {
-
-    private static final String TAG = "sayed";
-    public static String appLink;
+    public static final String appLink = "https://play.google.com/store/apps/details?id=com.dot.lid";
     private static MyApplication instance;
     private SharedPreferences soundPreference;
     private SharedPreferences languagePreference;
@@ -33,8 +31,6 @@ public class MyApplication extends Application {
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
-
-
             }
         });
     }

@@ -29,9 +29,6 @@ import com.dot.lid.model.Achievement;
 import com.dot.lid.model.TestResult;
 import com.dot.lid.utils.Constant;
 import com.dot.lid.view.test.BarChartActivity;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.List;
 import java.util.Locale;
@@ -44,8 +41,6 @@ public class AchievementActivity extends AppCompatActivity implements Instructio
     private ActivityAchievementBinding binding;
     private AchievementViewModel viewModel;
     private InstructionDialog instructionDialog;
-    private InterstitialAd interstitialAd;
-    private int stateFlag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +66,6 @@ public class AchievementActivity extends AppCompatActivity implements Instructio
         viewModel.retrieveTestResult();
         viewModel.retrieveAllAchievement();
 
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId(getString(R.string.interstitial_add_unit_id));
-        showAd();
     }
 
     @Override
@@ -87,8 +79,7 @@ public class AchievementActivity extends AppCompatActivity implements Instructio
         binding.toolbar.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stateFlag = 2;
-                showAd();
+                finish();
             }
         });
     }
@@ -251,12 +242,6 @@ public class AchievementActivity extends AppCompatActivity implements Instructio
     }
 
     @Override
-    public void onBackPressed() {
-        stateFlag = 2;
-        showAd();
-    }
-
-    @Override
     public void finish() {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
@@ -275,12 +260,10 @@ public class AchievementActivity extends AppCompatActivity implements Instructio
                 rateTheApp();
                 return true;
             case R.id.achievementInstruction:
-                instructionDialog = new InstructionDialog();
-                instructionDialog.show(getSupportFragmentManager(), "InstructionDialog");
+                openInstructionDialog();
                 return true;
             case R.id.achievementBarChart:
-                startActivity(new Intent(AchievementActivity.this, BarChartActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                gotoBarChartActivity();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -310,28 +293,19 @@ public class AchievementActivity extends AppCompatActivity implements Instructio
         }
     }
 
-    private void showAd() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                interstitialAd.show();
-            }
+    private void gotoBarChartActivity() {
+        startActivity(new Intent(AchievementActivity.this, BarChartActivity.class));
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
 
-            @Override
-            public void onAdClosed() {
-                if (stateFlag == 2) {
-                    finish();
-                }
-            }
+    private void openInstructionDialog() {
+        instructionDialog = new InstructionDialog();
+        instructionDialog.show(getSupportFragmentManager(), "InstructionDialog");
+    }
 
-            @Override
-            public void onAdFailedToLoad(int i) {
-                if (stateFlag == 2) {
-                    finish();
-                }
-            }
-        });
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        binding = null;
     }
 }

@@ -32,9 +32,7 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,14 +43,10 @@ import static com.dot.lid.utils.Language.ENGLISH;
 import static com.dot.lid.utils.Language.GERMAN;
 
 public class BarChartActivity extends AppCompatActivity implements InstructionDialog.InstructionDialogInterface {
-
     private ActivityBarChartBinding binding;
     private BarChart barChart;
-    private MyApplication myApplication;
     private BarChartViewModel viewModel;
     private InstructionDialog instructionDialog;
-    private InterstitialAd interstitialAd;
-    private int stateFlag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +54,7 @@ public class BarChartActivity extends AppCompatActivity implements InstructionDi
         binding = ActivityBarChartBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        myApplication = MyApplication.getInstance();
+        MyApplication myApplication = MyApplication.getInstance();
         String currentLanguage = myApplication.getLanguage();
         if (currentLanguage.equals(ARABIC.getLanguage())) {
             updateResources(ARABIC.getLanguage());
@@ -76,9 +70,7 @@ public class BarChartActivity extends AppCompatActivity implements InstructionDi
         subscribeObserver();
         viewModel.retrieveTestResult();
 
-        interstitialAd = new InterstitialAd(this);
-        interstitialAd.setAdUnitId(getString(R.string.interstitial_add_unit_id));
-        showAd();
+        binding.adView.loadAd(new AdRequest.Builder().build());
     }
 
     private void subscribeObserver() {
@@ -109,16 +101,9 @@ public class BarChartActivity extends AppCompatActivity implements InstructionDi
         binding.toolbar.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stateFlag = 2;
-                showAd();
+                finish();
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        stateFlag = 2;
-        showAd();
     }
 
     @Override
@@ -223,29 +208,22 @@ public class BarChartActivity extends AppCompatActivity implements InstructionDi
         }
     }
 
-    private void showAd() {
-        AdRequest adRequest = new AdRequest.Builder().build();
-        interstitialAd.loadAd(adRequest);
-        interstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                interstitialAd.show();
-            }
-
-            @Override
-            public void onAdClosed() {
-                if (stateFlag == 2) {
-                    finish();
-                }
-            }
-
-            @Override
-            public void onAdFailedToLoad(int i) {
-                if (stateFlag == 2) {
-                    finish();
-                }
-            }
-        });
+    @Override
+    protected void onPause() {
+        binding.adView.pause();
+        super.onPause();
     }
 
+    @Override
+    protected void onResume() {
+        binding.adView.resume();
+        super.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        binding.adView.destroy();
+        super.onDestroy();
+        binding = null;
+    }
 }

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.dot.lid.R;
 import com.dot.lid.databinding.ActivityWebViewBinding;
+import com.google.android.gms.ads.AdRequest;
 
 public class WebViewActivity extends AppCompatActivity {
 
@@ -37,6 +38,7 @@ public class WebViewActivity extends AppCompatActivity {
         initWebView();
         webView.loadUrl(url);
         binding.progressBar.setVisibility(View.VISIBLE);
+        binding.adView.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
@@ -95,6 +97,25 @@ public class WebViewActivity extends AppCompatActivity {
         webView.setHorizontalScrollBarEnabled(false);
     }
 
+    @Override
+    protected void onPause() {
+        binding.adView.pause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        binding.adView.resume();
+        super.onResume();
+    }
+
+    @Override
+    protected void onDestroy() {
+        binding.adView.destroy();
+        super.onDestroy();
+        binding = null;
+    }
+
     private static class MyWebChromeClient extends WebChromeClient {
         Context context;
 
@@ -102,7 +123,5 @@ public class WebViewActivity extends AppCompatActivity {
             super();
             this.context = context;
         }
-
-
     }
 }

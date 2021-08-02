@@ -26,6 +26,10 @@ import com.dot.lid.app.MyApplication;
 import com.dot.lid.databinding.ActivityTrainingBinding;
 import com.dot.lid.dialog.InstructionDialog;
 import com.dot.lid.view.test.BarChartActivity;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.LoadAdError;
 
 import java.util.Locale;
 
@@ -72,6 +76,7 @@ public class TrainingActivity extends AppCompatActivity implements InstructionDi
     private SocietySpinnerAdapter societySpinnerAdapter;
     private FederalSpinnerAdapter federalSpinnerAdapter;
     private InstructionDialog instructionDialog;
+    private InterstitialAd interstitialAd;
     private boolean flag;
 
     @Override
@@ -106,6 +111,22 @@ public class TrainingActivity extends AppCompatActivity implements InstructionDi
             updateResources(ENGLISH.getLanguage());
             binding.selectLanguageSpinner.setSelection(0);
         }
+
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getString(R.string.interstitial_add_unit_id));
+        interstitialAd.loadAd(new AdRequest.Builder().build());
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                interstitialAd.loadAd(new AdRequest.Builder().build());
+                gotoAchievementActivity();
+            }
+
+            @Override
+            public void onAdFailedToLoad(LoadAdError loadAdError) {
+                gotoAchievementActivity();
+            }
+        });
     }
 
     @Override
@@ -326,16 +347,17 @@ public class TrainingActivity extends AppCompatActivity implements InstructionDi
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.trainingInstruction:
-                instructionDialog = new InstructionDialog();
-                instructionDialog.show(getSupportFragmentManager(), "InstructionDialog");
+                openInstructionDialog();
                 return true;
             case R.id.trainingAchievement:
-                startActivity(new Intent(TrainingActivity.this, AchievementActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                if (interstitialAd.isLoaded()) {
+                    interstitialAd.show();
+                } else {
+                    gotoAchievementActivity();
+                }
                 return true;
             case R.id.trainingBarChart:
-                startActivity(new Intent(TrainingActivity.this, BarChartActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                gotoBarChartActivity();
                 return true;
             case R.id.trainingRateApp:
                 rateTheApp();
@@ -396,4 +418,24 @@ public class TrainingActivity extends AppCompatActivity implements InstructionDi
         }
     }
 
+    private void gotoAchievementActivity() {
+        startActivity(new Intent(TrainingActivity.this, AchievementActivity.class));
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    private void gotoBarChartActivity() {
+        startActivity(new Intent(TrainingActivity.this, BarChartActivity.class));
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    private void openInstructionDialog() {
+        instructionDialog = new InstructionDialog();
+        instructionDialog.show(getSupportFragmentManager(), "InstructionDialog");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
 }
